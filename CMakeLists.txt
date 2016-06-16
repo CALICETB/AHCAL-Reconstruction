@@ -91,9 +91,6 @@ SET( common_cmake_args
 OPTION( BUILD_DOCUMENTATION "Set to OFF to skip build/install Documentation" OFF )
 MESSAGE( STATUS "BUILD_DOCUMENTATION: ${BUILD_DOCUMENTATION}" )
 
-OPTION( WITH_QT5 "Set to OFF to build using Qt 4.X" OFF )
-MESSAGE( STATUS "WITH_QT5: ${WITH_QT5}" )
-
 # ----------------------------------------------------------------------------
 
 IF( MySQL_DIR )
@@ -118,7 +115,6 @@ ExternalProject_Add( xdrstream
 SET( QtReco_additional_cmake_args
 	${QtReco_additional_cmake_args}
 	-DBUILD_DOCUMENTATION=${BUILD_DOCUMENTATION}
-	-DWITH_QT5=${WITH_QT5}
 )
 
 # ---- Qt Reco Client ----
