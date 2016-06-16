@@ -122,7 +122,7 @@ SET( QtReco_additional_cmake_args
 #SET( QtReco-Client_additional_cmake_args
 #	${QtReco-Client_additional_cmake_args}
 #	-DBUILD_DOCUMENTATION=${BUILD_DOCUMENTATION}
-)
+#)
 
 # ----- QtReco package -----
 ExternalProject_Add( QtReco
