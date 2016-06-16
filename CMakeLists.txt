@@ -24,7 +24,7 @@ ELSE()
 	MESSAGE( SEND_ERROR "AHCALQtReco requires C++11 support. Please upgrade your compiler !" )
 ENDIF()
 
-OPTION( USE_MASTER "Whether to use master version of subpackages" OFF )
+OPTION( USE_MASTER "Whether to use master version of subpackages" ON )
 
 ###############################
 # versions of AHCAL Reconstruction subpackages
