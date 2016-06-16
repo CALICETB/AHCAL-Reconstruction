@@ -56,15 +56,11 @@ SET( xdrstream_package_depends "xdrstream" )
 SET( QtReco_package_depends "" )
 SET( QtReco-Client_package_depends "" )
 
+# ----- dependencies -----
+FIND_PACKAGE( ILCUTIL COMPONENTS ILCSOFT_CMAKE_MODULES QUIET )
 
-# set default install prefix to project root directory
-# instead of the cmake default /usr/local
-IF( CMAKE_INSTALL_PREFIX STREQUAL "/usr/local" )
-    SET( CMAKE_INSTALL_PREFIX "${PROJECT_SOURCE_DIR}" )
-ENDIF()
-
-# write this variable to cache
-SET( CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}" CACHE PATH "Where to install ${PROJECT_NAME}" FORCE )
+LIST( APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake )
+INCLUDE( default_settings )
 
 # ----------------------------------------------------------------------------
 
@@ -154,3 +150,7 @@ ExternalProject_Add( QtReco-Client
     LIST_SEPARATOR %
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/QtReco-Client
 )
+
+
+# display some variables and write them to cache
+DISPLAY_STD_VARIABLES()
