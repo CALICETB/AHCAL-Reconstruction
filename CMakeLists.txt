@@ -34,17 +34,17 @@ OPTION( USE_MASTER "Whether to use master version of subpackages" OFF )
 IF( USE_MASTER )
 	SET( xdrstream_version           "master" )
 	SET( QtReco_version              "master" )
-	SET( QtReco-Client_version       "master" )
+#	SET( QtReco-Client_version       "master" )
 ELSE()
 	SET( xdrstream_version           "v01-00-01" )
     SET( QtReco_version              "v01-00-00" )
-	SET( QtReco-Client_version       "v01-00-00" )
+#	SET( QtReco-Client_version       "v01-00-00" )
 ENDIF()
 
 # ----- download settings -----
 SET( xdrstream_repository         "https://github.com/CALICETB/xdrstream.git" )
 SET( QtReco_repository            "https://github.com/CALICETB/QtReco.git" )
-SET( QtReco-Client_repository     "https://github.com/CALICETB/QtReco-Client.git" )
+#SET( QtReco-Client_repository     "https://github.com/CALICETB/QtReco-Client.git" )
 
 # the external project in used are
 # set gradually along the CMakeLists.txt
@@ -54,7 +54,7 @@ SET( QtReco-Client_repository     "https://github.com/CALICETB/QtReco-Client.git
 
 SET( xdrstream_package_depends "xdrstream" )
 SET( QtReco_package_depends "" )
-SET( QtReco-Client_package_depends "" )
+#SET( QtReco-Client_package_depends "" )
 
 # ----- dependencies -----
 FIND_PACKAGE( ILCUTIL COMPONENTS ILCSOFT_CMAKE_MODULES QUIET )
@@ -119,10 +119,9 @@ SET( QtReco_additional_cmake_args
 
 # ---- Qt Reco Client ----
 
-SET( QtReco-Client_additional_cmake_args
-	${QtReco-Client_additional_cmake_args}
-	-DBUILD_DOCUMENTATION=${BUILD_DOCUMENTATION}
-	-DWITH_QT5=${WITH_QT5}
+#SET( QtReco-Client_additional_cmake_args
+#	${QtReco-Client_additional_cmake_args}
+#	-DBUILD_DOCUMENTATION=${BUILD_DOCUMENTATION}
 )
 
 # ----- QtReco package -----
@@ -137,15 +136,15 @@ ExternalProject_Add( QtReco
 )
 
 # ----- QtReco package -----
-ExternalProject_Add( QtReco-Client
-    DEPENDS ${xdrstream_package_depends}
-    GIT_REPOSITORY ${QtReco-Client_repository}
-    GIT_TAG ${QtReco-Client_version}
-    CMAKE_ARGS ${common_cmake_args} ${QtReco-Client_additional_cmake_args}
-    PREFIX QtReco-Client
-    LIST_SEPARATOR %
-    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/QtReco-Client
-)
+#ExternalProject_Add( QtReco-Client
+#    DEPENDS ${xdrstream_package_depends}
+#    GIT_REPOSITORY ${QtReco-Client_repository}
+#    GIT_TAG ${QtReco-Client_version}
+#    CMAKE_ARGS ${common_cmake_args} ${QtReco-Client_additional_cmake_args}
+#    PREFIX QtReco-Client
+#    LIST_SEPARATOR %
+#    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/QtReco-Client
+#)
 
 
 # display some variables and write them to cache
