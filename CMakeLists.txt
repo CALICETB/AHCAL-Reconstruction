@@ -56,6 +56,16 @@ SET( xdrstream_package_depends "xdrstream" )
 SET( QtReco_package_depends "" )
 SET( QtReco-Client_package_depends "" )
 
+
+# set default install prefix to project root directory
+# instead of the cmake default /usr/local
+IF( CMAKE_INSTALL_PREFIX STREQUAL "/usr/local" )
+    SET( CMAKE_INSTALL_PREFIX "${PROJECT_SOURCE_DIR}" )
+ENDIF()
+
+# write this variable to cache
+SET( CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}" CACHE PATH "Where to install ${PROJECT_NAME}" FORCE )
+
 # ----------------------------------------------------------------------------
 
 INCLUDE( ExternalProject )
@@ -78,7 +88,6 @@ SET( common_cmake_args
      "-DCMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH_FIXED}"
      "-DCMAKE_MODULE_PATH=${CMAKE_MODULE_PATH_FIXED}"
      "-DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}"
-     "-DINSTALL_DOC=${INSTALL_DOC}"
 )
 
 # ----- package options -----------------------------------------------------------------------
