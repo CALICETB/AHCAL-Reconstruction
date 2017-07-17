@@ -32,17 +32,17 @@ OPTION( USE_MASTER "Whether to use master version of subpackages" ON )
 # e.g. SET( QtReco_version "v01-00-00" )
 
 IF( USE_MASTER )
-	SET( xdrstream_version           "master" )
+	#SET( xdrstream_version           "master" )
 	SET( QtReco_version              "master" )
 	SET( QtReco-Client_version       "master" )
 ELSE()
-	SET( xdrstream_version           "v01-00-01" )
-    SET( QtReco_version              "v01-00-00" )
+	#SET( xdrstream_version           "v01-00-01" )
+        SET( QtReco_version              "v01-00-00" )
 	SET( QtReco-Client_version       "v01-00-00" )
 ENDIF()
 
 # ----- download settings -----
-SET( xdrstream_repository         "https://github.com/CALICETB/xdrstream.git" )
+#SET( xdrstream_repository         "https://github.com/CALICETB/xdrstream.git" )
 SET( QtReco_repository            "https://github.com/CALICETB/QtReco.git" )
 SET( QtReco-Client_repository     "https://github.com/CALICETB/QtReco-Client.git" )
 
@@ -52,7 +52,7 @@ SET( QtReco-Client_repository     "https://github.com/CALICETB/QtReco-Client.git
 # these variables are set to the package name
 # Mandatory packages are directly set
 
-SET( xdrstream_package_depends "xdrstream" )
+#SET( xdrstream_package_depends "xdrstream" )
 SET( QtReco_package_depends "" )
 SET( QtReco-Client_package_depends "" )
 
@@ -101,14 +101,14 @@ IF( MySQL_DIR )
 ENDIF()
 
 # ----- xdrstream package -----
-ExternalProject_Add( xdrstream
-    GIT_REPOSITORY ${xdrstream_repository}
-    GIT_TAG ${xdrstream_version}
-    CMAKE_ARGS ${common_cmake_args}
-    PREFIX xdrstream
-    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/xdrstream
-    LIST_SEPARATOR %
-)
+#ExternalProject_Add( xdrstream
+#    GIT_REPOSITORY ${xdrstream_repository}
+#    GIT_TAG ${xdrstream_version}
+#    CMAKE_ARGS ${common_cmake_args}
+#    PREFIX xdrstream
+#    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/xdrstream
+#    LIST_SEPARATOR %
+#)
 
 # ---- Qt Reco ----
 
